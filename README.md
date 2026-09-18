@@ -9,3 +9,4 @@ Die Anwendung kann auf verschiedene Arten gestartet werden:
 - direkt auf dem Computer mit Node.js
 - mit einem Docker-Container
 - mit Docker Compose
+Hallo ich bin Yannis

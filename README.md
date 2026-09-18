@@ -10,60 +10,77 @@ Die Anwendung kann auf verschiedene Arten gestartet werden:
 - direkt auf dem Computer mit Node.js
 - mit einem Docker-Container
 - mit Docker Compose
-Hallo ich bin Yannis
 
 Dieses Projekt ist eine **ToDo-Applikation mit Node.js**.  
 Die Anwendung kann **lokal**, mit **Docker** oder mit **Docker Compose** gestartet werden.
 
 ## Voraussetzungen
 
-- **Node.js**
-- **npm**
-- **Docker**
-- **Docker Compose**
-- **Git**
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/)
+- Docker Compose
 
 ## Repository klonen
 
-Das Repository kann mit folgendem Befehl geklont werden:
+```bash
+git clone <REPOSITORY-URL>
+cd <PROJEKTORDNER>
+```
+
+## Pakete installieren
 
 ```bash
-git clone DEINE-REPOSITORY-URL
-cd docker-nodejs-sample
+npm install
+```
 
-# 7. Fragen zur Docker-Dokumentation
+## Anwendung lokal starten
 
-### 1. Was ist ein Docker-Image?
+```bash
+npm start
+```
 
-Ein Docker-Image ist eine Vorlage, die alles enthält, was eine Anwendung zum Starten benötigt.
+Die Anwendung ist danach unter `http://localhost:3000` erreichbar.
 
-### 2. Was ist ein Docker-Container?
+## Docker-Image erstellen
 
-Ein Docker-Container ist eine laufende Instanz eines Docker-Images.
+```bash
+docker build -t node-app .
+```
 
-### 3. Was ist der Unterschied zwischen Image und Container?
+## Anwendung mit Docker starten
 
-Das Image ist die Vorlage und der Container ist die daraus gestartete Anwendung.
+```bash
+docker run -p 3000:3000 node-app
+```
 
-### 4. Welche Aufgabe besitzt ein Dockerfile?
+Danach ist die Anwendung unter `http://localhost:3000` erreichbar.
 
-Das Dockerfile beschreibt Schritt für Schritt, wie ein Docker-Image erstellt wird.
+## Anwendung mit Docker Compose starten
 
-### 5. Wozu wird `.dockerignore` verwendet?
+```bash
+docker compose up
+```
 
-Mit `.dockerignore` wird festgelegt, welche Dateien und Ordner nicht in das Docker-Image kopiert werden sollen.
+Im Hintergrund:
 
-### 6. Welche Aufgabe besitzt `compose.yaml`?
+```bash
+docker compose up -d
+```
 
-Die `compose.yaml` beschreibt, wie die Docker-Container erstellt und gestartet werden.
+## Anwendung stoppen
 
-### 7. Was bedeutet die Portangabe `3000:3000`?
+Mit Docker Compose:
 
-Der erste Port `3000` ist der Port des Computers. Der zweite Port `3000` ist der Port im Container.
+```bash
+docker compose down
+```
 
-### 8. Weshalb wird `package.json` vor dem restlichen Quellcode kopiert?
+Bei einem normalen Docker-Container:
 
-Damit Docker zuerst die benötigten Node.js-Pakete installieren kann. Ausserdem kann dadurch der Docker-Cache besser genutzt werden.
+```bash
+docker stop <CONTAINER-ID>
+```
 
 ### 9. Was macht `docker compose up`?
 
